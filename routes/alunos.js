@@ -23,7 +23,7 @@ let alunos = [
 let nextId = 3;
 
 // LISTAR TODOS
-router.get('/', (req, res) => {
+router.get('/', (req, res,) => {
   res.json(alunos);
 });
 
@@ -90,7 +90,7 @@ router.put('/:id', (req, res) => {
 });
 
 // DELETAR
-router.delete('/:id', (req, res) => {
+router.delete('/alunos/:id', (req, res) => {
   const idRecebido = req.params.id;
   const index = alunos.findIndex(a => a.id == idRecebido);
   if (index === -1) {

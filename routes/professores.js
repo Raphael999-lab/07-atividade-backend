@@ -23,12 +23,12 @@ let professores = [
 let nextId = 3;
 
 // LISTAR TODOS
-router.get('/', (req, res) => {
+router.get('/professores', (req, res) => {
   res.json(professores);
 });
 
 // BUSCAR UM
-router.get('/:id', (req, res) => {
+router.get('/professores/:id', (req, res) => {
   const idRecebido = req.params.id;
   const professor = professores.find(p => p.id == idRecebido);
   if (!professor) {
@@ -38,7 +38,7 @@ router.get('/:id', (req, res) => {
 });
 
 // CRIAR
-router.post('/', (req, res) => {
+router.post('/professores', (req, res) => {
   const { nome, cpf, email, curso, disciplina } = req.body;
   if (!nome || !cpf || !email || !curso || !disciplina) {
     return res.status(400).json({ erro: "Todos os campos são obrigatórios!" });
@@ -62,7 +62,7 @@ router.post('/', (req, res) => {
 });
 
 // EDITAR
-router.put('/:id', (req, res) => {
+router.put('/professores/:id', (req, res) => {
   const idRecebido = req.params.id;
   const index = professores.findIndex(p => p.id == idRecebido);
   if (index === -1) {
@@ -90,7 +90,7 @@ router.put('/:id', (req, res) => {
 });
 
 // DELETAR
-router.delete('/:id', (req, res) => {
+router.delete('/professores/:id', (req, res) => {
   const idRecebido = req.params.id;
   const index = professores.findIndex(p => p.id == idRecebido);
   if (index === -1) {
